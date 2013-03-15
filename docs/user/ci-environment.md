@@ -20,9 +20,21 @@ Travis CI runs builds in virtual machines that are snapshotted before each build
 
 The environment available to test suites is known as the *Travis CI environment*. VMs are deployed from VM images ("boxes") that are available to the public. Provisioning of VM images is highly automated, new versions are deployed on average about once a week.
 
-## CI environment OS
+## CI environment
 
-travis-ci.org uses 32-bit Ubuntu Linux 12.04 (server edition).
+**Warning:** We have [recently migrated](/blog/2013-01-25-the-worker-gets-a-revamp/) from Ubuntu 32-bit to Ubuntu 64-bit, and from Oracle Virtualbox to OpenVZ. These changes introduced some [regressions](/docs/user/known-problems), that are unfortunately hard to solve.
+
+### Virtualization Technology
+
+travis-ci.org uses [OpenVZ](http://openvz.org/) container-based virtualization technology for linux. These Cloud VMs are hosted by [bluebox](https://bluebox.net/).
+
+### Operating Systems
+
+travis-ci.org uses 64-bit Ubuntu Linux 12.04 (server edition).
+
+The ability to select the VM type (OS family, OS architecture,...) is not yet available, but on the roadmap.
+
+TBD: A note a about Mac OS X worker already?
 
 ## How travis-ci.org VMs are provisioned
 
@@ -38,7 +50,6 @@ All VM images have the following pre-installed
  * Mercurial (official Ubuntu packages)
  * Subversion (official Ubuntu packages)
 
- 
 ### Compilers & Built toolchain
 
 GCC 4.6.x, Clang 3.1.x, make, autotools, cmake, scons.
@@ -359,7 +370,7 @@ Recent 1.2.x version (usually the most recent)
 * bundler
 * rake
 
-## How VM images are upgraded and deployed
+## How VM images are upgraded and deployed - TBD: update this section...?
 
 We currently use Vagrant to develop, test, build, export and import VM images
 (a.k.a "Vagrant boxes"). Provisioning is automated using [Opscode
@@ -395,7 +406,7 @@ the release.
 The Travis CI environment is set up using [Opscode
 Chef](http://www.opscode.com/chef/). All the [cookbooks used by
 travis-ci.org](https://github.com/travis-ci/travis-cookbooks/tree/master/ci_environment)
-are open source and can be found on GitHub. travis-ci.org uses 32-bit Ubuntu
+are open source and can be found on GitHub. travis-ci.org uses Ubuntu
 Linux 12.04 but thanks to Chef, migrating to a different Ubuntu version or
 another distribution is much easier.
 
@@ -403,7 +414,6 @@ Chef cookbooks are developed using [Vagrant](http://vagrantup.com/) and [Sous
 Chef](https://github.com/michaelklishin/sous-chef) so cookbook contributors are
 encouraged to use them.
 
-Many cookbooks Travis CI environment uses are taken from the [official Opscode
-cookbooks repository](https://github.com/opscode/cookbooks). We modify some of
-them for continuous integration needs and sync them periodically or as the need
-arises.
+Many cookbooks Travis CI environment uses were originally taken from [former official Opscode
+cookbooks repository](https://github.com/opscode/cookbooks). We modified some of
+them for continuous integration needs and upgrade them only as the need arises. Therefore Travis Cookbooks may differ with latest versions released in official repositories of [Opscode Public Cookbooks](https://github.com/opscode/cookbooks) and [community.opscode.com](http://community.opscode.com/).

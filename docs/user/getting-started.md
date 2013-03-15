@@ -265,3 +265,9 @@ See [Database setup](/docs/user/database-setup/) to learn how to configure a dat
 ### Step seven: We are here to help!
 
 For any kind of questions feel free to join our IRC channel [#travis on irc.freenode.net](irc://irc.freenode.net/%23travis). We're there to help :)
+
+Do you want to report or request something? Great! Just have look there before submitting your issue:
+
+* [status.travis-ci.org](http://status.travis-ci.org)
+* [well known problems](/docs/user/known-problems)
+* [contributing guide](https://github.com/travis-ci/travis-web/blob/master/CONTRIBUTING.md)

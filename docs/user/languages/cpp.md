@@ -10,7 +10,7 @@ This guide covers build environment and configuration topics specific to C++ pro
 
 ## CI environment for C Projects
 
-Travis VMs are 32 bit and currently provide
+Travis VMs are 64 bit and currently provide
 
  * gcc 4.6
  * clang 3.1
@@ -25,7 +25,7 @@ before you add your project to Travis.
 ## Dependency Management
 
 Because there is no dominant convention in the community about dependency management, Travis CI skips dependency installation
-for C++ projects. 
+for C++ projects.
 
 If you need to perform special tasks before your tests can run, override the `install:` key in your `.travis.yml`:
 
