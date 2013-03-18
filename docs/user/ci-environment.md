@@ -32,10 +32,6 @@ travis-ci.org uses [OpenVZ](http://openvz.org/) container-based virtualization t
 
 travis-ci.org uses 64-bit Ubuntu Linux 12.04 (server edition).
 
-The ability to select the VM type (OS family, OS architecture,...) is not yet available, but on the roadmap.
-
-TBD: A note a about Mac OS X worker already?
-
 ## How travis-ci.org VMs are provisioned
 
 Provisioning of VMs is automated using [Opscode Chef](http://www.opscode.com/chef/). VMs are never upgraded "on the go", we always replace entire images. VM images are first uploaded to our internal network and deployed to each individual worker during slow periods of the day. On average, we try to deploy new versions of runtimes (e.g. Ruby or PHP) and software like data stores within a week from their public availability, given that Travis Core Team is aware of or notified about the release.
