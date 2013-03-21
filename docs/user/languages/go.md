@@ -17,8 +17,6 @@ Travis VMs are 64 bit and currently provide
 
 Go projects on travis-ci.org assume you use Make or straight Go build tool by default.
 
-As a free community service, Travis CI limits build duration to about 20 minutes.
-
 
 ## Dependency Management
 
